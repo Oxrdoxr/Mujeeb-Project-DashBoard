@@ -1,0 +1,247 @@
+/* Global Styles */
+:root {
+  --primary-red: #E53935;
+  --primary-blue: #004E98;
+  --white: #FFFFFF;
+  --gray-100: #F5F5F5;
+  --gray-200: #EEEEEE;
+  --gray-500: #9E9E9E;
+  --gray-700: #616161;
+  --gray-900: #212121;
+}
+.header-logo {
+  width: 32px;
+  height: 32px;
+  margin-right: 12px;
+  /* Ensures proper vertical alignment */
+  vertical-align: middle;
+  /* Optional: adds smooth hover effect */
+  transition: transform 0.2s ease;
+}
+
+.header-logo:hover {
+  transform: scale(1.05);
+}
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--gray-100);
+}
+
+.app-container {
+  min-height: 100vh;
+}
+
+/* Header Styles */
+.app-header {
+  background-color: var(--white);
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+  background-color: var(--primary-red);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  font-weight: bold;
+}
+
+.app-title {
+  color: var(--primary-blue);
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+/* Main Content */
+.main-content {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.welcome-title {
+  color: var(--primary-blue);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  color: var(--primary-blue);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+/* Incident Details */
+.incident-details {
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.detail-item {
+  display: flex;
+  align-items: flex-start;
+}
+
+.detail-icon {
+  color: var(--primary-red);
+  margin-right: 12px;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.detail-label {
+  color: var(--gray-700);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.detail-value {
+  margin: 0;
+  font-weight: 500;
+}
+
+.status-in-progress {
+  color: var(--primary-red);
+}
+
+/* Status Cards */
+.status-section {
+  margin-bottom: 2rem;
+}
+
+.status-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.status-card {
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border-top: 4px solid transparent;
+}
+
+.status-card.new {
+  border-top-color: var(--primary-red);
+}
+
+.status-card.responding {
+  border-top-color: var(--primary-blue);
+}
+
+.status-card.resolved {
+  border-top-color: #388E3C;
+}
+
+.status-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.status-card.new .status-icon {
+  color: var(--primary-red);
+}
+
+.status-card.responding .status-icon {
+  color: var(--primary-blue);
+}
+
+.status-card.resolved .status-icon {
+  color: #388E3C;
+}
+
+.count {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin: 0.5rem 0 0;
+}
+
+/* Live Map */
+.map-section {
+  margin-bottom: 2rem;
+}
+
+.map-container {
+  background-color: var(--gray-200);
+  border-radius: 8px;
+  height: 300px;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.map-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--gray-700);
+}
+
+.map-pin {
+  color: var(--primary-red);
+  font-size: 2rem;
+  animation: pulse 2s infinite;
+}
+
+.map-label {
+  background-color: var(--primary-red);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.zoom-button {
+  background-color: var(--primary-blue);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.zoom-button:hover {
+  background-color: #003366;
+}
+
+.button-icon {
+  margin-right: 0.5rem;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
