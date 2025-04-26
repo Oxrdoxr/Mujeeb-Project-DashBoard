@@ -1,41 +1,47 @@
 import React from 'react';
-import { FiMapPin, FiClock, FiUser, FiAlertCircle } from 'react-icons/fi';
+import { ref, update } from 'firebase/database';
+import { database } from '../firebase/firebaseConfig';
 import '../styles/main.css';
 
-const IncidentDetails = () => {
+const IncidentDetails = ({ incident, setSelectedIncident }) => {
+  if (!incident) return null;
+
+  const handleUpdateStatus = (newStatus) => {
+    const refItem = ref(database, `accidents/${incident.id}`);
+    update(refItem, { status: newStatus });
+    setSelectedIncident(null);
+  };
+
   return (
     <div className="incident-details">
-      <h2 className="section-title">Incident Details</h2>
-      <div className="details-grid">
-        <div className="detail-item">
-          <FiMapPin className="detail-icon" />
-          <div>
-            <p className="detail-label">Location</p>
-            <p className="detail-value">Riyadh – King Fahad Road</p>
-          </div>
+      <h2 className="section-title">Accident Details</h2>
+      <p><strong>Driver:</strong> {incident.driverName}</p>
+      <p><strong>Location:</strong> ({incident.lat}, {incident.lng})</p>
+      <p><strong>Status:</strong> {incident.status}</p>
+      <p><strong>Timestamp:</strong> {incident.timestamp}</p>
+
+      {/* ✅ هنا نضيف الشرط */}
+      {incident.status === 'new' && (
+        <div className="update-status-buttons">
+          <button className="status-button responding" onClick={() => handleUpdateStatus('responding')}>
+            Start Responding
+          </button>
         </div>
-        <div className="detail-item">
-          <FiClock className="detail-icon" />
-          <div>
-            <p className="detail-label">Timestamp</p>
-            <p className="detail-value">2 minutes ago</p>
-          </div>
+      )}
+
+      {incident.status === 'responding' && (
+        <div className="update-status-buttons">
+          <button className="status-button resolved" onClick={() => handleUpdateStatus('resolved')}>
+            Mark as Resolved
+          </button>
         </div>
-        <div className="detail-item">
-          <FiUser className="detail-icon" />
-          <div>
-            <p className="detail-label">Driver Info</p>
-            <p className="detail-value">Driver: Ali S.</p>
-          </div>
-        </div>
-        <div className="detail-item">
-          <FiAlertCircle className="detail-icon" />
-          <div>
-            <p className="detail-label">Status</p>
-            <p className="detail-value status-in-progress">In Progress</p>
-          </div>
-        </div>
-      </div>
+      )}
+
+      {incident.status === 'resolved' && (
+        <p style={{ color: 'green', fontWeight: 'bold', marginTop: '1rem' }}>
+          ✅ This accident is already resolved.
+        </p>
+      )}
     </div>
   );
 };
