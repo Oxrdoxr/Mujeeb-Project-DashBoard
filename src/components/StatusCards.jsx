@@ -12,7 +12,7 @@ const StatusCards = ({ onSelectStatus }) => {
   });
 
   useEffect(() => {
-    const refAccidents = ref(database, 'accidents/');
+    const refAccidents = ref(database, 'accidents');
     onValue(refAccidents, (snapshot) => {
       const data = snapshot.val();
       let newCount = 0;

@@ -49,7 +49,7 @@ const LiveMap = ({ selectedIncident }) => {
   const [incidents, setIncidents] = useState([]);
 
   useEffect(() => {
-    const refAccidents = ref(database, 'accidents/');
+    const refAccidents = ref(database, 'accidents');
     onValue(refAccidents, (snapshot) => {
       const data = snapshot.val();
       if (data) {

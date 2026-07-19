@@ -8,7 +8,7 @@ const IncidentList = ({ selectedStatus, setSelectedIncident }) => {
   useEffect(() => {
     if (!selectedStatus) return;
 
-    const refAccidents = ref(database, 'accidents/');
+    const refAccidents = ref(database, 'accidents');
     onValue(refAccidents, (snapshot) => {
       const data = snapshot.val();
       const filteredIncidents = Object.entries(data || {}).map(([id, incident]) => ({

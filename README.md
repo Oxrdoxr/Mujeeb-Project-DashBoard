@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# Mujeeb Project Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+Mujeeb is an automatic emergency response system designed to detect vehicle accidents and notify emergency teams in real time.
 
-In the project directory, you can run:
+This repository contains the Emergency Dashboard web application, built with React.js, which displays accident alerts and incident details for emergency responders.
 
-### `npm start`
+## What the project is
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Mujeeb is an integrated system composed of:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Detection Device**: An Arduino-based device installed in vehicles with sensors such as accelerometers and collision detectors.
+- **Cloud Communication**: The device sends alerts to a cloud server using GSM or Wi-Fi when an accident is detected.
+- **Emergency Dashboard**: A React.js dashboard used by emergency teams to monitor accident alerts, view incident status, and track locations on a live map.
 
-### `npm test`
+## Main objective
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The goal is to automate accident notification and improve emergency response without using artificial intelligence.
 
-### `npm run build`
+The system relies on programmed sensor readings and real-time communication to provide faster incident detection and response.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Quick README Summary
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Mujeeb Dashboard is a React.js web application that supports the Mujeeb automatic emergency response system by displaying car accident alerts in real time to emergency teams.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Features implemented
 
-### `npm run eject`
+- Login page and signup flow for dashboard access
+- Dashboard with incident status cards
+- Incident list filtered by status (new, responding, resolved)
+- Incident detail panel with status controls
+- Live map rendering incident markers using Leaflet
+- Firebase Realtime Database integration for incident data
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Tech stack
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- React
+- React Router
+- Firebase Realtime Database
+- Leaflet and react-leaflet
+- React Icons
+- Create React App
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Project structure
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- `src/App.jsx`: app routing and dashboard layout
+- `src/components/`: header, status cards, incident list, incident details, live map
+- `src/pages/`: `Login.jsx`, `Signup.jsx`
+- `src/firebase/firebaseConfig.js`: Firebase initialization
+- `src/styles/`: CSS styles
 
-## Learn More
+## Getting started
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Start the development server:
+   ```bash
+   npm start
+   ```
 
-### Code Splitting
+3. Open the app at:
+   ```bash
+   http://localhost:3000
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Notes
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Current authentication is UI-based and does not use Firebase Auth yet.
+- The app reads and updates incident data from Firebase Realtime Database.
+- Ensure `src/firebase/firebaseConfig.js` contains your real Firebase project credentials.
+- If using source control, do not commit sensitive Firebase configuration.

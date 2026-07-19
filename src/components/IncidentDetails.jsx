@@ -7,7 +7,7 @@ const IncidentDetails = ({ incident, setSelectedIncident }) => {
   if (!incident) return null;
 
   const handleUpdateStatus = (newStatus) => {
-    const refItem = ref(database, `accidents/${incident.id}`);
+    const refItem = ref(database, `accidents${incident.id}`);
     update(refItem, { status: newStatus });
     setSelectedIncident(null);
   };
