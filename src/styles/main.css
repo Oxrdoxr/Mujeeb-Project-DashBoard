@@ -1,0 +1,275 @@
+/* Global Styles */
+:root {
+  --primary-red: #E53935;
+  --primary-blue: #004E98;
+  --white: #FFFFFF;
+  --gray-100: #F5F5F5;
+  --gray-200: #EEEEEE;
+  --gray-500: #9E9E9E;
+  --gray-700: #616161;
+  --gray-900: #212121;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--gray-100);
+}
+
+.app-container {
+  min-height: 100vh;
+}
+
+/* Header Styles */
+.app-header {
+  background-color: var(--white);
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo {
+  width: 32px;
+  height: 32px;
+  margin-right: 12px;
+  vertical-align: middle;
+  transition: transform 0.2s ease;
+}
+
+.header-logo:hover {
+  transform: scale(1.05);
+}
+
+.app-title {
+  color: var(--primary-blue);
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+/* Main Content */
+.main-content {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.welcome-title {
+  color: var(--primary-blue);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  color: var(--primary-blue);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+/* Status Cards */
+.status-section {
+  margin-bottom: 2rem;
+}
+
+.status-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.status-card {
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border-top: 4px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.status-card:hover {
+  transform: translateY(-3px);
+}
+
+.status-card.new { border-top-color: var(--primary-red); }
+.status-card.responding { border-top-color: var(--primary-blue); }
+.status-card.resolved { border-top-color: #388E3C; }
+
+.status-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.status-card.new .status-icon { color: var(--primary-red); }
+.status-card.responding .status-icon { color: var(--primary-blue); }
+.status-card.resolved .status-icon { color: #388E3C; }
+
+.count {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin: 0.5rem 0 0;
+}
+
+/* Dashboard Layout */
+.dashboard-flex {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.left-section {
+  flex: 1;
+  min-width: 350px;
+}
+
+.right-section {
+  flex: 1.2;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.right-section .live-map-section {
+  flex-grow: 1;
+  height: 100%;
+}
+
+/* Live Map */
+.live-map-section {
+  margin-bottom: 2rem;
+}
+
+.leaflet-container {
+  z-index: 0;
+  height: 100%;
+  min-height: 500px;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.map-container {
+  background-color: var(--white);
+  border-radius: 12px;
+  height: 400px;
+  position: relative;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.leaflet-popup-content-wrapper {
+  background: var(--gray-100);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  color: var(--gray-900);
+}
+
+.leaflet-popup-tip {
+  background: var(--gray-100);
+}
+
+/* Incident List */
+.incident-list-container {
+  margin-bottom: 2rem;
+}
+
+.incident-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+}
+
+.incident-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Incident Details */
+.incident-details {
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.update-status-buttons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.status-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.status-button.responding {
+  background-color: var(--primary-blue);
+  color: white;
+}
+
+.status-button.resolved {
+  background-color: #388E3C;
+  color: white;
+}
+
+.status-button:hover {
+  opacity: 0.9;
+}
+
+/* Incident Status Label */
+.incident-status {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+  background-color: var(--gray-200);
+  color: var(--gray-900);
+}
+
+.incident-status.new {
+  background-color: var(--primary-red);
+  color: white;
+}
+
+.incident-status.responding {
+  background-color: var(--primary-blue);
+  color: white;
+}
+
+.incident-status.resolved {
+  background-color: #388E3C;
+  color: white;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
